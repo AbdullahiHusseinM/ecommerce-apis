@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Order;
 
 class Product extends Model
 {
@@ -37,4 +38,10 @@ class Product extends Model
     {
         return $this->belongsTo(Subcategory::class);
     }
+
+    public function order()
+    {
+        $this->belongsTo(Order::class);
+    }
+
 }

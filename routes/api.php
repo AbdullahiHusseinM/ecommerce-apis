@@ -10,6 +10,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,8 @@ Route::post('product/{product}', [ProductController::class, 'update']);
 Route::delete('product/{product}', [ProductController::class, 'destroy']);
 
 
-//CartRoutes
-
-Route::post('addcart/{id}', [ShoppingController::class, 'add_to_cart']);
+//OrderItemRoutes
+Route::post('orderitems', [\App\Http\Controllers\OrderItemsController::class, 'add_items_to_orders']);
+Route::get('viewOrderItems', [\App\Http\Controllers\OrderItemsController::class, 'viewallorders']);
+Route::post('createorder', [OrderController::class, 'createOrder']);
+Route::get('viewmyorders', [OrderController::class, 'viewmyorders']);
